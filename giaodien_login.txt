@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng Ký</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <section class="giaodien">
+      <div class="row split-interface">
+        <div class="col left-panel">
+          <div class="row aaa">
+            <h2>Đăng Nhập</h2>
+          </div>
+          <div class="row bbb">
+            <h5>Tên tài khoản hoặc địa chỉ email *</h5>
+          </div>
+          <div class="row bbb">
+            <input type="text" class="input-frame" placeholder="" />
+          </div>
+          <div class="row bbb">
+            <h5>Mật Khẩu *</h5>
+          </div>
+          <div class="row bbb">
+            <input type="text" class="input-frame" placeholder="" />
+          </div>
+          <div class="row bbb">
+            <input type="checkbox" id="myCheckbox" />
+            <label for="myCheckbox">Ghi nhớ mật khẩu</label>
+          </div>
+          <div class="row bbb">
+            <button class="my-button">Đăng Nhập</button>
+          </div>
+          <div class="row ccc">
+            <h5>Quên mật khẩu ?</h5>
+          </div>
+        </div>
+        <!-- Đường kẻ dọc -->
+        <div class="divider"></div>
+        <!-- Đường kẻ dọc -->
+        <div class="col right-panel">
+          <div class="row aaa">
+            <h2>Đăng Ký</h2>
+          </div>
+          <div class="row bbb">
+            <h4>Địa chỉ email *</h4>
+          </div>
+          <div class="row bbb">
+            <input type="text" class="input-frame" placeholder="" />
+          </div>
+          <div class="row bbb">
+            <h5>
+              A Link to set a new password will be sent to your email address.
+            </h5>
+          </div>
+          <div class="row bbb">
+            <button class="my-button">Đăng Ký</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
