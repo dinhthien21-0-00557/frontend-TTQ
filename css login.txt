@@ -1,0 +1,112 @@
+.giaodien {
+  color: white;
+  background-image: url(image/dumemay.jpg);
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 100px;
+  margin-bottom: 500px;
+}
+.aaa {
+  margin-left: 100px;
+  margin-right: 100px;
+  padding-top: 20px;
+  margin-bottom: 5px;
+}
+.bbb {
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.ccc {
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 20px;
+  padding-bottom: 50px;
+}
+.input-frame {
+  border: 1px solid #ccc;
+  padding: 10px; /* Đặt khoảng cách bên trong input */
+  border-radius: 2px; /* Đặt góc bo tròn */
+  width: 400px; /* Đặt chiều rộng */
+}
+/* Tạo một kiểu mặc định cho nút tích */
+input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+/* Tùy chỉnh màu sắc khi được chọn */
+input[type="checkbox"]:checked + label {
+  color: rgb(251, 251, 251); /* Màu sắc chữ khi được chọn */
+  font-weight: bold; /* Chữ in đậm khi được chọn */
+}
+/* Thiết lập kiểu cho nút bấm */
+.my-button {
+  padding: 10px 20px; /* Kích thước của nút */
+  background-color: #6f737799; /* Màu nền */
+  color: #fff; /* Màu chữ */
+  border: none; /* Loại bỏ đường viền */
+  border-radius: 2px; /* Góc bo tròn */
+  cursor: pointer; /* Con trỏ thay đổi khi di chuột qua nút */
+}
+.my-buttoN {
+  padding: 10px 20px; /* Kích thước của nút */
+  background-color: rgba(0, 0, 0, 0); /* Màu trong suốt */
+  color: #fff; /* Màu chữ */
+  border: 2px solid #fff; /* Màu viền trắng */
+  border-radius: 2px; /* Góc bo tròn */
+  cursor: pointer; /* Con trỏ thay đổi khi di chuột qua nút */
+}
+
+/* Thiết lập kiểu khi di chuột qua nút */
+.my-button:hover {
+  background-color: #000000; /* Màu nền thay đổi khi di chuột qua */
+}
+.split-interface {
+  display: flex;
+}
+
+.left-panel,
+.right-panel {
+  flex: 1;
+  padding: 20px;
+  border-right: 1px solid rgb(255, 255, 255); /* Đường kẻ dọc */
+}
+
+.right-panel {
+  border-right: none; /* Loại bỏ đường kẻ dọc cuối cùng */
+}
+.split-interfacee {
+  display: flex;
+}
+
+.left-panell {
+  flex: 1;
+  padding: 20px;
+  margin-left: 20px;
+  margin-right: px;
+  margin-top: 100px;
+  background-color: rgb(3, 69, 99);
+  height: 300px;
+  text-align: center;
+  padding-top: 120px;
+  color: white;
+}
+.right-panell {
+  flex: 1;
+  padding: 20px;
+  margin-left: px;
+  margin-right: 20px;
+  margin-top: 100px;
+  background-color: rgb(200, 191, 191);
+  height: 400px;
+  color: rgb(0, 0, 0);
+}
+.hihi {
+  background-color: aqua;
+  height: 100px;
+  text-align: center;
+  margin-top: 100px;
+}
