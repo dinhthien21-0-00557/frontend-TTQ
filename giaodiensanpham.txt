@@ -1,0 +1,30 @@
+ <body>
+    <style></style>
+    <div class="wrapper">
+      <div class="headline">
+        <h3>San pham ban chay</h3>
+      </div>
+      <ul class="products">
+        <li>
+          <div class="product-item">
+            <div class="product-top">
+              <a href="" class="product-thumb">
+                <img src="image/hihi.png" alt="" />
+              </a>
+              <a href="" class="buy-now">Mua ngay</a>
+              <!-- mua ngay -->
+            </div>
+            <div class="product-info">
+              <a href="" class="product-cat">banphim</a>
+              <a href="" class="product-name">banphimco</a>
+              <div class="product-price">$2.99,00</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="product-item">
+            <div class="product-top">
+              <a href="" class="product-thumb">
+                <img src="image/hihi.png" alt="" />
+              </a>
+              <a href="" class="buy-now">Mua ngay</a>
