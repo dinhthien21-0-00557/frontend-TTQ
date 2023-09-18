@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="plugins/font-awesome/css/all.css">
+</head>
+<style>
+    body {
+        font-family: 'Times New Roman';
+    }
+</style>
+
+<body>
+    <section>
+        <div class="bg" style="background-color: rgba(82, 82, 82, 0.64);">
+            <div class="container p-4 " style="background-color:  rgba(0, 0, 0, 0.703)">
+                <div class="display-6 justify-content-center text-center text-white">
+                    SHOPPING CART <span class="opacity-75">></span> CHECKOUT DETAILS <span class="opacity-75">></span>
+                    ORDER
+                    COMPLETE
+                </div>
+            </div>
+            <div class="container" style="background-color:  rgba(0, 0, 0, 0.703)">
+                <div class="row text-white ms-4">
+                    <div class="col-8  border-end pe-5">
+                        <div class="row p-2 border-bottom">
+                            <div class="col-6">
+                                SẢN PHẨM
+                            </div>
+                            <div class="col">
+                                GÍA
+                            </div>
+                            <div class="col">
+                                SỐ LƯỢNG
+                            </div>
+                            <div class="col">
+                                TẠM TÍNH
+                            </div>
+                        </div>
+                        <div class="row p-2 border-bottom">
+                            <div class="col-6">
+
+                                <div class="row ">
+                                    <div class="col" style="display: flex; align-items: center;">
+                                        <i class="fa-regular fa-circle-xmark fa-1x "></i>
+                                        <img src="plugins/imgs/co-day-dareu-ek87-thumb-600x600.jpeg" alt=""
+                                            class="img-fluid img-thumbnail p-3">
+                                    </div>
+                                    <div class="col">
+                                        DareU sử dụng loại Red Switch cho bàn phím có dây EK87, loại switch này cho chất
+                                        lượng phím bấm cực tốt, độ mượt mà rất ấn tượng và đặc biệt là độ bền và ổn định
+                                        hơn rất nhiều.
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col " style="display: flex; align-items: center;">
+                                G699.000 đ
+                            </div>
+                            <div class="col " style="display: flex; align-items: center;">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" id="minusButton"><i
+                                                class="fas fa-minus"></i></button>
+                                    </div>
+                                    <input type="text" class="form-control text-center" value="1" id="quantityInput">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="plusButton"><i
+                                                class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col" style="display: flex; align-items: center;">
+                                699.000 đ
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col p-3 ps-5">
+                        <div class="row border-bottom me-5">
+                            <div class="col  ">
+                                CỘNG GIỎ HÀNG
+                            </div>
+                        </div>
+                        <div class="row border-bottom me-5 pt-3">
+                            <div class="col  ">
+                                Đơn giá
+                            </div>
+                            <div class="col text-end">
+                                699.000 đ
+                            </div>
+                        </div>
+                        <div class="row border-bottom me-5">
+                            <div class="col  ">
+                                Đơn giá
+                            </div>
+                            <div class="col text-end">
+                                699.000 đ
+                            </div>
+                        </div>
+                        <div class="row  me-5 pt-5">
+                            <div class="col  ">
+                                <button type="button" class="btn btn-success " style="width: 100%;">Tiến hành thoanh
+                                    toán</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="bg" style="height: 30px; background-color:  rgba(0, 0, 0, 0.703) ,"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.9/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript để tăng/giảm giá trị khi nhấp vào nút
+        document.getElementById('plusButton').addEventListener('click', function () {
+            var quantityInput = document.getElementById('quantityInput');
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        });
+
+        document.getElementById('minusButton').addEventListener('click', function () {
+            var quantityInput = document.getElementById('quantityInput');
+            if (parseInt(quantityInput.value) > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+        });
+    </script>
+</body>
+<script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+</html>
