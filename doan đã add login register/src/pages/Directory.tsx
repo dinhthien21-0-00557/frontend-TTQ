@@ -1,8 +1,15 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 import project1 from "../assets/img/project1.png";
+import { useNavigate } from "react-router-dom";
 
 const Directory = () => {
+  const navigate = useNavigate();
+
+  const showDetai = (e: any, id: number) => {
+    if (e) e.preventDefault();
+    navigate(`/detai/${id}`);
+  };
   return (
     <section className="directory-color">
       <div className="container">
@@ -22,7 +29,13 @@ const Directory = () => {
                   </span>
                   <span className="price-product-items d-l-b"> 999.000 ₫ </span>
                   <div>
-                    <a href="#"> xem ngay </a>
+                    <button
+                      type="button"
+                      className="btn btn-danger"
+                      onClick={() => showDetai(null, 0)}
+                    >
+                      <i className="bi-plus-lg" /> Xem Ngay
+                    </button>
                   </div>
                 </div>
               </div>

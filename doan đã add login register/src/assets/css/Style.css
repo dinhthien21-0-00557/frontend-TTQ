@@ -180,7 +180,7 @@ section {
 .sliders-color .carousel-item {
   aspect-ratio: 1440/700;
 }
-..sliders-color {
+.sliders-color {
   overflow: hidden;
 }
 .sliders-color .carousel-item img {
@@ -350,7 +350,7 @@ section {
 .product-items {
   padding: 10px;
 }
-/* .................. */
+/* ........directory-detai.......... */
 .detai {
   background-color: var(--bg-first);
 }
@@ -362,12 +362,18 @@ section {
   font-size: 16px;
   color: #ffffff;
 }
-.products-ct h3 {
-  font-weight: 900;
-  font-size: 18px;
+.h-detai {
+  font-weight: 700;
+  font-size: 20px;
   color: #ff0000;
 }
-
+.products-ct {
+  width: 50%;
+  padding-left: 15px;
+}
+.hr-detai {
+  margin: 15px;
+}
 /* .select-products-form select {
   border-radius: 10px;
   padding: 5px;
@@ -440,4 +446,97 @@ section {
 }
 .footer-car {
   width: calc(100% / 3) !important;
+}
+
+.aaa {
+  margin-left: 150px;
+  margin-right: 100px;
+  padding-top: 20px;
+  margin-bottom: 5px;
+}
+.bbb {
+  margin-left: 150px;
+  margin-right: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.ccc {
+  margin-left: 430px;
+  margin-right: 100px;
+  margin-top: 20px;
+  padding-bottom: 50px;
+}
+.input-frame {
+  border: 1px solid #ccc;
+  padding: 10px; /* Đặt khoảng cách bên trong input */
+  border-radius: 2px; /* Đặt góc bo tròn */
+  width: 400px; /* Đặt chiều rộng */
+}
+/* Tạo một kiểu mặc định cho nút tích */
+input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+/* Tùy chỉnh màu sắc khi được chọn */
+input[type="checkbox"]:checked + label {
+  color: rgb(251, 251, 251); /* Màu sắc chữ khi được chọn */
+  font-weight: bold; /* Chữ in đậm khi được chọn */
+}
+/* Thiết lập kiểu cho nút bấm */
+.my-button {
+  padding: 10px 20px; /* Kích thước của nút */
+  background-color: #6f737799; /* Màu nền */
+  color: #fff; /* Màu chữ */
+  border: none; /* Loại bỏ đường viền */
+  border-radius: 2px; /* Góc bo tròn */
+  cursor: pointer; /* Con trỏ thay đổi khi di chuột qua nút */
+}
+.my-buttoN {
+  padding: 10px 20px; /* Kích thước của nút */
+  background-color: rgba(0, 0, 0, 0); /* Màu trong suốt */
+  color: #fff; /* Màu chữ */
+  border: 2px solid #fff; /* Màu viền trắng */
+  border-radius: 2px; /* Góc bo tròn */
+  cursor: pointer; /* Con trỏ thay đổi khi di chuột qua nút */
+}
+
+/* Thiết lập kiểu khi di chuột qua nút */
+.my-button:hover {
+  background-color: #000000; /* Màu nền thay đổi khi di chuột qua */
+}
+.split-interface {
+  display: flex;
+}
+
+.left-panel,
+.right-panel {
+  flex: 1;
+  padding: 20px;
+  border-right: 1px solid rgb(255, 255, 255); /* Đường kẻ dọc */
+}
+
+.right-panel {
+  border-right: none; /* Loại bỏ đường kẻ dọc cuối cùng */
+}
+.split-interfacee {
+  display: flex;
+}
+
+.right-panell {
+  flex: 1;
+  padding: 20px;
+  margin-left: 300px;
+  margin-right: 300px;
+  margin-top: 100px;
+  background-color: rgb(200, 191, 191);
+  height: 450px;
+  color: rgb(0, 0, 0);
+}
+.hihi {
+  background-color: aqua;
+  height: 100px;
+  text-align: center;
+  margin-top: 100px;
 }

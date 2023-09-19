@@ -2,6 +2,9 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import Logo from "../assets/img/LOGO1.png";
+import { Link } from "react-router-dom";
+import Login from "./Login";
+import Register from "./Register";
 
 const Bodyheader = () => {
   return (
@@ -23,13 +26,13 @@ const Bodyheader = () => {
               </a>
             </span>
             <div className="col pad-header">
-              <a className="t-x" href="#">
-                Đăng Nhập
-              </a>
+              <Link className="navbar-brand" to="./Login">
+                Đăng Nhập
+              </Link>
               <span>|</span>
-              <a className="t-x" href="#">
-                Đăng Ký
-              </a>
+              <Link className="navbar-brand" to="./Register">
+                Đăng Ký
+              </Link>
               <span>|</span>
               <a className="t-x" href="#">
                 <i className="fa-solid fa-cart-shopping" /> Giỏ Hàng

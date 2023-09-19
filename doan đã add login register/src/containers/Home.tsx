@@ -1,24 +1,22 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import "../assets/css/Style.css";
+import Header from "../pages/Header";
 import Bodyheader from "./../pages/Bodyheader";
-import Headers from "./../pages/Header";
-import Menu from "../pages/Menu";
-import Slider from "../pages/Slider";
+import Menu from "./../pages/Menu";
+import Slider from "./../pages/Slider";
+import Footercard from "./../pages/Footercard";
 import Directory from "./../pages/Directory";
-import Footercard from "../pages/Footercard";
-
-const Layout = () => {
+const Home = () => {
   return (
     <>
-      <Headers />
+      <Header />
       <Bodyheader />
+      <Directory />
       <Menu />
       <Slider />
-      <Directory />
       <Footercard />
     </>
   );
 };
 
-export default Layout;
+export default Home;
