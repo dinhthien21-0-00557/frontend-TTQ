@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sidebar Menu Example</title>
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="plugins/font-awesome/css/all.css">
+</head>
+<style>
+    /* Thay đổi màu nền của Sidebar Menu */
+    .left-side-menu {
+        background-color: #343a40;
+        width: 250px;
+        /* Đặt độ rộng của Sidebar */
+        position: fixed;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow-y: auto;
+        transition: all 0.3s;
+    }
+
+    /* Thay đổi màu nền của Sidebar Logo */
+    .logo {
+        background-color: #343a40;
+    }
+
+    /* Thay đổi màu văn bản của các liên kết */
+    .metismenu a {
+        text-decoration: none;
+        display: block;
+        padding: 15px 20px;
+        color: #ffffff;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    /* Thay đổi màu khi hover trên các liên kết */
+    .metismenu a:hover {
+        color: #007bff;
+        /* Màu xanh */
+    }
+
+    /* Thay đổi màu nền của submenu */
+    .nav-second-level {
+        background-color: #343a40;
+    }
+
+    /* Thay đổi màu khi hover trên submenu */
+    .nav-second-level li a:hover {
+        color: #007bff;
+        /* Màu xanh */
+    }
+
+    /* Tùy chỉnh phần nội dung bên phải */
+    .main-content {
+        margin-left: 250px;
+        /* Để tạo khoảng cách với Sidebar */
+    }
+
+    /* Ẩn chấm tròn */
+    .metismenu ul,
+    .metismenu ul li {
+        list-style: none;
+        padding-left: 0;
+        margin-left: 0;
+    }
+</style>
+
+<body>
+    <div class="left-side-menu border-dark border-4 border-end">
+        <div class="slimscroll-menu">
+            <div class="row p-4">
+                <div class="col">
+
+                    <img src="plugins/imgs/logo.jpg" alt="" class=" img-fluid " />
+
+                </div>
+            </div>
+            <div id="sidebar-menu ">
+                <div class="text-secondary">
+                    <ul class="metismenu text-start justify-content-start ps-0 ms-0   " id="side-menu">
+                        <li style="  list-style: none;padding-left: 0; margin-left: 0;">
+                            <div style="   text-decoration: none;
+                            display: block;
+                            padding: 15px 20px;
+                            color: #ffffff;
+                            font-size: 1.2em;   
+                            font-weight: bold;">
+                                <i class="fa-solid fa-book-open pe-2"></i>
+                                <span> Pages </span>
+                                <span class="menu-arrow"></span>
+                            </div>
+
+                            <ul class="nav-second-level ms-5" aria-expanded="false">
+                                <li>
+                                    <a href="sanpham.html">Sản phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="themsanpham.html">Thêm sản phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="thongtindathang.html">Thông tin đặt hàng</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="bg-secondary-subtle">
+        <main class="main-content   ">
+            <div class="bg" style=" background-color: #343a40;">
+                <div class="#">
+                    <div class="row p-4">
+                        <div class="col-3 ps-5">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search..." />
+                                <div class="input-group-append">
+                                    <button class="btn btn-secondary" type="submit">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="row ps-5 pt-3  ">
+                    <div class="col">
+                        <h2 class="display-6" style="font-family: 'Times New Roman', Times, serif;">Sản Phẩm</h2>
+                    </div>
+                    <div class="col text-end me-4 pt-3">
+                        Pages > <span class="text-info  align-middle">Sản Phẩm</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <div class="col-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search..." />
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body  pb-5 text-center p-4 ">
+                <table class="table  table-bordered border border border-dark rounded-5  ">
+
+                    <thead>
+                        <th>IDSP
+                        </th>
+                        <th>
+                            Tên SP
+                        </th>
+                        <th>
+                            Thương hiệu
+                        </th>
+                        <th>
+                            Mô tả
+                        </th>
+                        <th>
+                            Giá
+                        </th>
+                        <th class=" text-nowrap">
+                            Hoạt động
+                        </th>
+
+                    </thead>
+                    <tbody class="align-middle">
+                        <tr>
+                            <td>01</td>
+                            <td>Bộ Keycap Childishness Ngây Thơ Siêu Dễ Thương, Chuẩn OEM, Xuyên LED Cực
+                                Đẹp, 138 Nút.</td>
+                            <td>Childishness</td>
+                            <td>Bộ Keycap PBT 138 Nút
+                                >>> Lưu ý: đây là bộ keycap không phải bàn phím!Chất liệu: Nhựa PBT (
+                                không bị bóng khi sử dụng nhiều ). Sử dụng : Phím cơ. Có thể sử dụng cho
+                                các bàn phím layout khác như 68,96.84,98…. Màu sắc : Hồng Đặc điểm:
+                                Double Shot Xuyên LED Dưới Chân Trong Suốt. Thiết kế đặc biệt với 2
+                                phần, phần chân trong suốt cho LED tỏa ra cực đẹp.</td>
+                            <td>499.000</td>
+                            <td class=" text-nowrap">
+                                <a href="#" class="btn btn-warning btn-sm ">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm delete">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>Bộ Keycap Childishness Ngây Thơ Siêu Dễ Thương, Chuẩn OEM, Xuyên LED Cực
+                                Đẹp, 138 Nút.</td>
+                            <td>Childishness</td>
+                            <td>Bộ Keycap PBT 138 Nút
+                                >>> Lưu ý: đây là bộ keycap không phải bàn phím!Chất liệu: Nhựa PBT (
+                                không bị bóng khi sử dụng nhiều ). Sử dụng : Phím cơ. Có thể sử dụng cho
+                                các bàn phím layout khác như 68,96.84,98…. Màu sắc : Hồng Đặc điểm:
+                                Double Shot Xuyên LED Dưới Chân Trong Suốt. Thiết kế đặc biệt với 2
+                                phần, phần chân trong suốt cho LED tỏa ra cực đẹp.</td>
+                            <td>499.000</td>
+                            <td class=" text-nowrap">
+                                <a href="#" class="btn btn-warning btn-sm ">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm delete">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>Bộ Keycap Childishness Ngây Thơ Siêu Dễ Thương, Chuẩn OEM, Xuyên LED Cực
+                                Đẹp, 138 Nút.</td>
+                            <td>Childishness</td>
+                            <td>Bộ Keycap PBT 138 Nút
+                                >>> Lưu ý: đây là bộ keycap không phải bàn phím!Chất liệu: Nhựa PBT (
+                                không bị bóng khi sử dụng nhiều ). Sử dụng : Phím cơ. Có thể sử dụng cho
+                                các bàn phím layout khác như 68,96.84,98…. Màu sắc : Hồng Đặc điểm:
+                                Double Shot Xuyên LED Dưới Chân Trong Suốt. Thiết kế đặc biệt với 2
+                                phần, phần chân trong suốt cho LED tỏa ra cực đẹp.</td>
+                            <td>499.000</td>
+                            <td class=" text-nowrap">
+                                <a href="#" class="btn btn-warning btn-sm ">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm delete">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>Bộ Keycap Childishness Ngây Thơ Siêu Dễ Thương, Chuẩn OEM, Xuyên LED Cực
+                                Đẹp, 138 Nút.</td>
+                            <td>Childishness</td>
+                            <td>Bộ Keycap PBT 138 Nút
+                                >>> Lưu ý: đây là bộ keycap không phải bàn phím!Chất liệu: Nhựa PBT (
+                                không bị bóng khi sử dụng nhiều ). Sử dụng : Phím cơ. Có thể sử dụng cho
+                                các bàn phím layout khác như 68,96.84,98…. Màu sắc : Hồng Đặc điểm:
+                                Double Shot Xuyên LED Dưới Chân Trong Suốt. Thiết kế đặc biệt với 2
+                                phần, phần chân trong suốt cho LED tỏa ra cực đẹp.</td>
+                            <td>499.000</td>
+                            <td class=" text-nowrap">
+                                <a href="#" class="btn btn-warning btn-sm ">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm delete">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>Bộ Keycap Childishness Ngây Thơ Siêu Dễ Thương, Chuẩn OEM, Xuyên LED Cực
+                                Đẹp, 138 Nút.</td>
+                            <td>Childishness</td>
+                            <td>Bộ Keycap PBT 138 Nút
+                                >>> Lưu ý: đây là bộ keycap không phải bàn phím!Chất liệu: Nhựa PBT (
+                                không bị bóng khi sử dụng nhiều ). Sử dụng : Phím cơ. Có thể sử dụng cho
+                                các bàn phím layout khác như 68,96.84,98…. Màu sắc : Hồng Đặc điểm:
+                                Double Shot Xuyên LED Dưới Chân Trong Suốt. Thiết kế đặc biệt với 2
+                                phần, phần chân trong suốt cho LED tỏa ra cực đẹp.</td>
+                            <td>499.000</td>
+                            <td class=" text-nowrap">
+                                <a href="#" class="btn btn-warning btn-sm ">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm delete">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>Bộ Keycap Childishness Ngây Thơ Siêu Dễ Thương, Chuẩn OEM, Xuyên LED Cực
+                                Đẹp, 138 Nút.</td>
+                            <td>Childishness</td>
+                            <td>Bộ Keycap PBT 138 Nút
+                                >>> Lưu ý: đây là bộ keycap không phải bàn phím!Chất liệu: Nhựa PBT (
+                                không bị bóng khi sử dụng nhiều ). Sử dụng : Phím cơ. Có thể sử dụng cho
+                                các bàn phím layout khác như 68,96.84,98…. Màu sắc : Hồng Đặc điểm:
+                                Double Shot Xuyên LED Dưới Chân Trong Suốt. Thiết kế đặc biệt với 2
+                                phần, phần chân trong suốt cho LED tỏa ra cực đẹp.</td>
+                            <td>499.000</td>
+                            <td class=" text-nowrap">
+                                <a href="#" class="btn btn-warning btn-sm ">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm delete">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>Bộ Keycap Childishness Ngây Thơ Siêu Dễ Thương, Chuẩn OEM, Xuyên LED Cực
+                                Đẹp, 138 Nút.</td>
+                            <td>Childishness</td>
+                            <td>Bộ Keycap PBT 138 Nút
+                                >>> Lưu ý: đây là bộ keycap không phải bàn phím!Chất liệu: Nhựa PBT (
+                                không bị bóng khi sử dụng nhiều ). Sử dụng : Phím cơ. Có thể sử dụng cho
+                                các bàn phím layout khác như 68,96.84,98…. Màu sắc : Hồng Đặc điểm:
+                                Double Shot Xuyên LED Dưới Chân Trong Suốt. Thiết kế đặc biệt với 2
+                                phần, phần chân trong suốt cho LED tỏa ra cực đẹp.</td>
+                            <td>499.000</td>
+                            <td class=" text-nowrap">
+                                <a href="#" class="btn btn-warning btn-sm ">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm delete">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="height: 200px;">
+
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
