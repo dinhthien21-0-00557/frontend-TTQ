@@ -10,6 +10,7 @@ const Directory = () => {
     if (e) e.preventDefault();
     navigate(`/detai/`);
   };
+
   return (
     <section className="directory-color">
       <div className="container">

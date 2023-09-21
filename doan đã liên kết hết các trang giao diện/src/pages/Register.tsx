@@ -7,7 +7,7 @@ const Register = () => {
       <div className="split-interfacee">
         <div className="right-panell">
           <div className="row bbb">
-            <h2>Đăng Ký </h2>
+            <h2>ĐĂNG KÝ TÀI KHOẢN NGƯỜI DÙNG </h2>
           </div>
           <div className="row bbb">
             <h5>Tên tài khoản hoặc địa chỉ email *</h5>

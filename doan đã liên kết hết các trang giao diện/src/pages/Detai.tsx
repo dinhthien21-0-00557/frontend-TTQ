@@ -10,6 +10,10 @@ const Detai = () => {
   const handleBack = () => {
     navigate("/");
   };
+  const showShoppingcart = (e: any, id: number) => {
+    if (e) e.preventDefault();
+    navigate(`/shoppingcart/`);
+  };
   return (
     <section className="detai">
       <div className="container">
@@ -51,7 +55,14 @@ const Detai = () => {
                 <input type="number" />
               </div>
               <div className="col">
-                <a href="#">Thêm Vào dỏ hàng</a>
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={() => showShoppingcart(null, 0)}
+                >
+                  <i className="bi-plus-lg" />
+                  Thêm vào giỏ hàng
+                </button>
               </div>
               <button
                 type="button"

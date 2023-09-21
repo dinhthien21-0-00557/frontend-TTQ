@@ -6,7 +6,7 @@ const Login = () => {
       <div className="split-interfacee">
         <div className="right-panell">
           <div className="row bbb">
-            <h2>Đăng Nhập</h2>
+            <h2>ĐĂNG NHẬP TÀI KHOẢN NGƯỜI DÙNG</h2>
           </div>
           <div className="row bbb">
             <h5>Tên tài khoản hoặc địa chỉ email *</h5>

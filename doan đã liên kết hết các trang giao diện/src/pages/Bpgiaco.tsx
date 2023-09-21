@@ -1,17 +1,15 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-
-import project1 from "../assets/img/project1.png";
 import { useNavigate, useParams } from "react-router-dom";
-
-const Keyboard = () => {
+import project1 from "../assets/img/project1.png";
+const Bpgiaco = () => {
   const { id } = useParams<{ id: string }>();
 
   const navigate = useNavigate();
   const handleBack = () => {
     navigate("/");
   };
-  const showDetai = (e: any, id: number) => {
+  const showBpgiaco = (e: any, id: number) => {
     if (e) e.preventDefault();
     navigate(`/detai/`);
   };
@@ -26,7 +24,7 @@ const Keyboard = () => {
           Về trang chủ
         </button>
         <div className="headdline">
-          <h3>Bàn Phím cơ</h3>
+          <h3>Bàn phím giả cơ</h3>
         </div>
         <div className="product-form row j-b-c-t">
           <div className="l-4 product-items col ">
@@ -44,7 +42,7 @@ const Keyboard = () => {
                     <button
                       type="button"
                       className="btn btn-danger"
-                      onClick={() => showDetai(null, 0)}
+                      onClick={() => showBpgiaco(null, 0)}
                     >
                       <i className="bi-plus-lg" /> Xem Ngay
                     </button>
@@ -257,4 +255,4 @@ const Keyboard = () => {
   );
 };
 
-export default Keyboard;
+export default Bpgiaco;

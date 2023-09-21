@@ -26,17 +26,17 @@ const Bodyheader = () => {
               </a>
             </span>
             <div className="col pad-header">
-              <Link className="navbar-brand" to="./Login">
+              <Link className="navbar-brand" to="./loginuser">
                 Đăng Nhập
               </Link>
               <span>|</span>
-              <Link className="navbar-brand" to="./Register">
+              <Link className="navbar-brand" to="./registeruser">
                 Đăng Ký
               </Link>
               <span>|</span>
-              <a className="t-x" href="#">
-                <i className="fa-solid fa-cart-shopping" /> Giỏ Hàng
-              </a>
+              <Link className="navbar-brand" to="./shoppingcart">
+                Giỏ Hàng
+              </Link>
             </div>
           </div>
         </div>
