@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Argon Dashboard 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.png" />
+
+    <!-- plugin css -->
+    <link href="assets\libs\datatables\dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets\libs\datatables\responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css2/nucleo-icons.css" rel="stylesheet" />
+    <link href="assets/css2/nucleo-icons.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="assets/css2/nucleo-svg.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link id="pagestyle" href="assets/css2/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+    <!-- App css -->
+    <link href="assets\css\bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets\css\icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets\css\app.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .pagination {
+            margin-left: 800px;
+            display: inline-block;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        .navbar-custom {
+            background-color: rgb(91, 116, 255);
+        }
+
+        .left-side-menu {
+            background-color: rgb(248, 248, 248);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Begin page -->
+    <div id="wrapper">
+        <!-- Topbar Start -->
+        <div class="navbar-custom">
+            <ul class="list-unstyled topnav-menu float-right mb-0">
+                <li class="dropdown notification-list">
+                    <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown"
+                        href="#" role="button" aria-haspopup="false" aria-expanded="false">
+
+                        <span class="pro-user-name ml-1">
+                            MinhQuang
+                        </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right profile-dropdown">
+                        <!-- item-->
+                        <div class="dropdown-item noti-title">
+                            <h6 class="m-0">Welcome !</h6>
+                        </div>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="dripicons-user"></i>
+                            <span>My Account</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="dripicons-gear"></i>
+                            <span>Settings</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="dripicons-help"></i>
+                            <span>Support</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="dripicons-lock"></i>
+                            <span>Lock Screen</span>
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="dripicons-power"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="dropdown notification-list">
+                    <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
+                        <i class="fe-settings noti-icon"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled menu-left mb-0">
+                <li class="float-left">
+                    <button class="button-menu-mobile open-left disable-btn">
+                        <i class="fe-menu"></i>
+                    </button>
+                </li>
+            </ul>
+            <li class="app-search d-none d-sm-block">
+                <form>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search..." />
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fe-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </div>
+        <!-- end Topbar -->
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left-side-menu">
+            <div class="slimscroll-menu">
+                <!-- LOGO -->
+                <a href="#" class="logo text-center mb-4">
+                    <span class="logo-lg">
+                        <img src="assets/img/logo-ct-dark.png" alt="" height="20" />
+                    </span>
+                    <p class="ms-1 font-weight-bold">Argon Dashboard 2</p>
+                </a>
+
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <ul class="metismenu" id="side-menu">
+
+
+                        <li>
+                            <a href="admin.html">
+                                <i class="fe-airplay"></i>
+
+                                <span> Dashboard </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);">
+                                <i class="fe-book-open"></i>
+                                <span> Pages </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li>
+                                    <a href="pages_menu.html">Menu</a>
+                                </li>
+                                <li>
+                                    <a href="pages_customer.html">Customer</a>
+                                </li>
+                                <li>
+                                    <a href="pages_table.html">Table</a>
+                                </li>
+                                <li>
+                                    <a href="pages_nguyenlieu.html">ingredient</a>
+                                </li>
+                                <li>
+                                    <a href="pages_nhanvien.html">Staff</a>
+                                </li>
+
+                                <li>
+                                    <a href="pages_hoadon.html">Invoice</a>
+                                </li>
+                                <li>
+                                    <a href="pages_thongkesanpham.html">
+                                        Statistical</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="clearfix"></div>
+            </div>
+            <!-- Sidebar -left -->
+        </div>
+        <!-- Left Sidebar End -->
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card b">
+                                <div class="card-body">
+                                    <button type="button" class="btn btn-primary mb-3" data-toggle="modal"
+                                        data-target="#addcontactmodal">
+                                        <i class="mdi mdi-account-plus mr-1"></i> THÊM KHÁCH HÀNG
+                                    </button>
+                                    <div class="table-responsive">
+                                        <table id="basic-datatable" class="table table-hover dt-responsive text-wrap"
+                                            style="height: 200px;">
+                                            <thead>
+                                                <th>IDSP
+                                                </th>
+                                                <th class="col-3">
+                                                    Tên SP
+                                                </th>
+                                                <th>
+                                                    Thương hiệu
+                                                </th>
+                                                <th class="col-5 ">
+                                                    Mô tả
+                                                </th>
+                                                <th>
+                                                    Giá
+                                                </th>
+                                                <th>
+                                                    Hoạt động
+                                                </th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>01</td>
+                                                    <td>Bộ Keycap Childishness Ngây Thơ Siêu Dễ Thương, Chuẩn OEM, Xuyên
+                                                        LED Cực Đẹp, 138 Nút.</td>
+                                                    <td>Childishness</td>
+                                                    <td>Bộ Keycap PBT 138 Nút >>> Lưu ý: đây là bộ keycap không phải
+                                                        bàn phím!Chất liệu: Nhựa PBT ( không bị bóng khi sử dụng nhiều
+                                                        ). Sử dụng : Phím cơ. Có thể sử dụng cho các bàn phím layout
+                                                        khác
+                                                        như 68,96.84,98…. Màu sắc : Hồng Đặc điểm: Double Shot Xuyên LED
+                                                        Dưới Chân Trong Suốt. Thiết kế đặc biệt với 2 phần, phần chân
+                                                        trong suốt cho LED tỏa ra cực đẹp.</td>
+                                                    <td>499.000</td>
+                                                    <td>
+                                                        <button data-toggle="modal" data-target="#editcontactmodal"
+                                                            href="javascript:void(0);" class="btn btn-warning btn-sm ">
+                                                            Sửa
+                                                        </button>
+                                                        <a href="#" class="btn btn-danger btn-sm delete">Xóa</a>
+                                                    </td>
+                                                </tr>
+                                                <!-- Thêm các hàng dữ liệu khác tương tự ở đây -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="pagination">
+                                        <a href="#">&laquo;</a>
+                                        <a href="#">1</a>
+                                        <a href="#">2</a>
+                                        <a href="#">3</a>
+                                        <a href="#">&raquo;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- END wrapper -->
+
+
+
+
+</body>
+
+</html>
