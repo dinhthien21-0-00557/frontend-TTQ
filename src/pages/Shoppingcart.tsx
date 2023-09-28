@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { firestore } from "../data/firebase";
 import Header from "./Header";
 import Bodyheader from "./Bodyheader";
 import Menu from "./Menu";
 import Footercard from "./Footercard";
-import Logo from "../assets/img/LOGO1.png";
 
 interface Card {
   id: string;
@@ -59,8 +58,33 @@ const Shoppingcart = () => {
     }
   };
 
-  const handleThanhToan = () => {
-    navigate("/shopping");
+  const handleThanhToan = async () => {
+    try {
+      const cardRef = firestore.collection("CARD");
+      const querySnapshot = await cardRef.get();
+      querySnapshot.forEach((doc) => {
+        doc.ref.delete();
+      });
+      const historyRef = firestore.collection("HISTORY");
+      cartItems.forEach(async (item) => {
+        try {
+          await historyRef.add({
+            id: item.id,
+            HISTORY_ID: item.CARD_ID,
+            IMAGES: item.IMAGES,
+            TEN_SP: item.TEN_SP,
+            DON_GIA: item.DON_GIA,
+            SO_LUONG: item.SO_LUONG,
+            TONG_TIEN: item.TONG_TIEN,
+          });
+        } catch (error) {
+          console.error("Error adding to HISTORY:", error);
+        }
+      });
+      navigate("/shopping");
+    } catch (error) {
+      console.error("Error handling thanh toan:", error);
+    }
   };
   return (
     <>
@@ -122,7 +146,7 @@ const Shoppingcart = () => {
               </div>
               <div className="form-thanhtoan">
                 <div className="number-product">
-                  <span> ổng tiền: {totalAmount} VND </span>
+                  <span> Tổng tiền: {totalAmount} VND </span>
                 </div>
                 <div>
                   <button
