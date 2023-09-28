@@ -59,10 +59,8 @@ const EditSanpham: React.FC = () => {
     try {
       await firestore.collection("PRODUCT").doc(id).update(data);
       navigate("/sanpham");
-      setSuccessMessage("Sửa sản phẩm thành công!");
     } catch (error) {
       console.error("Error updating product:", error);
-      setSuccessMessage("Đã xảy ra lỗi khi cập nhật sản phẩm.");
     }
   };
   return (
@@ -265,11 +263,6 @@ const EditSanpham: React.FC = () => {
           </main>
         </div>
       </div>
-      {successMessage && (
-        <div className="alert alert-success" role="alert">
-          {successMessage}
-        </div>
-      )}
     </>
   );
 };

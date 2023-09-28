@@ -45,7 +45,14 @@ const Themsanpham: React.FC = () => {
     THUONG_HIEU: string;
   }) => {
     const productsRef = firestore.collection("PRODUCT");
-    productsRef.add(product);
+    productsRef
+      .add(product)
+      .then(() => {
+        window.alert("Sản phẩm đã được thêm thành công");
+      })
+      .catch((error) => {
+        console.error("Lỗi khi thêm sản phẩm:", error);
+      });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
