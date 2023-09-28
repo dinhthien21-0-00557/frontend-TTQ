@@ -6,9 +6,11 @@ import logo from "../assets/img/logo.jpg";
 import Themsanpham from "./Themsanpham";
 interface Product {
   id: string;
+
   IMAGES: string;
   PRODUCT_ID: string;
   TEN_SP: string;
+  LOAI: string;
   THUONG_HIEU: string;
   MOTA: string;
   DON_GIA: string;
@@ -26,6 +28,7 @@ const Sanpham = () => {
           IMAGES: doc.data().IMAGES,
           PRODUCT_ID: doc.data().PRODUCT_ID,
           TEN_SP: doc.data().TEN_SP,
+          LOAI: doc.data().LOAI,
           THUONG_HIEU: doc.data().THUONG_HIEU,
           MOTA: doc.data().MOTA,
           DON_GIA: doc.data().DON_GIA,
@@ -138,6 +141,7 @@ const Sanpham = () => {
                     <th>IDSP</th>
                     <th>Ảnh</th>
                     <th>Tên SP</th>
+                    <th>Loại</th>
                     <th>Thương hiệu</th>
                     <th>Mô tả</th>
                     <th>Giá</th>
@@ -156,6 +160,7 @@ const Sanpham = () => {
                         />
                       </td>
                       <td>{product.TEN_SP}</td>
+                      <td>{product.LOAI}</td>
                       <td>{product.THUONG_HIEU}</td>
                       <td>{product.MOTA}</td>
                       <td>{product.DON_GIA}</td>

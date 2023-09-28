@@ -1,41 +1,65 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { useParams, useNavigate, NavLink } from "react-router-dom";
 import logo from "../assets/img/logo.jpg";
-import firebase from "firebase/app";
 import { firestore } from "../data/firebase";
 
 const EditSanpham: React.FC = () => {
+  const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
+  const [idInput, setIdInput] = useState("");
+  const [ten, setTen] = useState("");
+  const [images, setImages] = useState("");
+  const [loai, setLoai] = useState("");
+  const [thuongHieu, setThuongHieu] = useState("");
+  const [moTa, setMoTa] = useState("");
+  const [gia, setGia] = useState("");
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const productRef = firestore.collection("PRODUCT").doc(id);
+        const productDoc = await productRef.get();
+
+        if (productDoc.exists) {
+          const productData = productDoc.data();
+          if (productData) {
+            // Kiểm tra xem productData có tồn tại hay không
+            setIdInput(productData.PRODUCT_ID);
+            setTen(productData.TEN_SP);
+            setImages(productData.IMAGES);
+            setLoai(productData.LOAI);
+            setThuongHieu(productData.THUONG_HIEU);
+            setMoTa(productData.MOTA);
+            setGia(productData.DON_GIA);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      }
+    };
+
+    fetchData();
+  }, [id]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const idInput = document.getElementById("id") as HTMLInputElement;
-    const tenInput = document.getElementById("ten") as HTMLInputElement;
-    const imagesInput = document.getElementById("images") as HTMLInputElement;
-    const loaiInput = document.getElementById("loai") as HTMLInputElement;
-    const thuonghieuInput = document.getElementById(
-      "thuonghieu"
-    ) as HTMLInputElement;
-    const motaInput = document.getElementById("mota") as HTMLTextAreaElement;
-    const giaInput = document.getElementById("gia") as HTMLInputElement;
-
     const data = {
-      PRODUCT_ID: idInput.value,
-      TEN_SP: tenInput.value,
-      IMAGES: imagesInput.value,
-      LOAI: loaiInput.value,
-      THUONG_HIEU: thuonghieuInput.value,
-      MOTA: motaInput.value,
-      DON_GIA: giaInput.value,
+      PRODUCT_ID: idInput,
+      TEN_SP: ten,
+      IMAGES: images,
+      LOAI: loai,
+      THUONG_HIEU: thuongHieu,
+      MOTA: moTa,
+      DON_GIA: gia,
     };
 
     try {
       await firestore.collection("PRODUCT").doc(id).update(data);
+      navigate("/sanpham");
       setSuccessMessage("Sửa sản phẩm thành công!");
-      console.log("Sửa sản phẩm thành công!");
     } catch (error) {
       console.error("Error updating product:", error);
       setSuccessMessage("Đã xảy ra lỗi khi cập nhật sản phẩm.");
@@ -135,6 +159,8 @@ const EditSanpham: React.FC = () => {
                         id="id"
                         name="id"
                         required
+                        value={idInput}
+                        readOnly
                       />
                     </div>
                     <div className="mb-3">
@@ -147,6 +173,8 @@ const EditSanpham: React.FC = () => {
                         id="ten"
                         name="ten"
                         required
+                        value={ten}
+                        onChange={(e) => setTen(e.target.value)}
                       />
                     </div>
                     <div className="mb-3">
@@ -159,6 +187,8 @@ const EditSanpham: React.FC = () => {
                         id="images"
                         name="images"
                         required
+                        value={images}
+                        onChange={(e) => setImages(e.target.value)}
                       />
                     </div>
                     <div className="mb-3">
@@ -171,6 +201,8 @@ const EditSanpham: React.FC = () => {
                         id="loai"
                         name="loai"
                         required
+                        value={loai}
+                        onChange={(e) => setLoai(e.target.value)}
                       />
                     </div>
                     <div className="mb-3">
@@ -186,6 +218,8 @@ const EditSanpham: React.FC = () => {
                         id="thuonghieu"
                         name="thuonghieu"
                         required
+                        value={thuongHieu}
+                        onChange={(e) => setThuongHieu(e.target.value)}
                       />
                     </div>
                     <div className="mb-3">
@@ -197,6 +231,8 @@ const EditSanpham: React.FC = () => {
                         id="mota"
                         name="mota"
                         required
+                        value={moTa}
+                        onChange={(e) => setMoTa(e.target.value)}
                       />
                     </div>
                     <div className="mb-3">
@@ -209,6 +245,8 @@ const EditSanpham: React.FC = () => {
                         id="gia"
                         name="gia"
                         required
+                        value={gia}
+                        onChange={(e) => setGia(e.target.value)}
                       />
                     </div>
                     <button

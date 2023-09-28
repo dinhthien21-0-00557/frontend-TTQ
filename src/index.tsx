@@ -10,18 +10,21 @@ import "./assets/css/Style.css";
 import "./assets/img/LOGO1.png";
 import Layout from "./containers/Layout";
 import { BrowserRouter } from "react-router-dom";
-import Home from "./containers/Home";
+import { Provider } from "react-redux"; // Import Provider
+import store from "./redux/store"; // Import store
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <BrowserRouter>
-    <Layout />
+    <Provider store={store}>
+      {" "}
+      {/* Wrap your app with Provider */}
+      <Layout />
+    </Provider>
   </BrowserRouter>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
