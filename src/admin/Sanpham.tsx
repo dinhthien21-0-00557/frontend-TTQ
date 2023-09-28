@@ -91,7 +91,7 @@ const Sanpham = () => {
                       <span> Pages </span>
                       <span className="menu-arrow" />
                     </div>
-                    <ul className="nav-second-level ms-5" aria-expanded="false">
+                    <ul className="nav-second-level ms-5">
                       <li>
                         <NavLink className="nav-link" to="#">
                           Sản phẩm
@@ -104,7 +104,7 @@ const Sanpham = () => {
                       </li>
                       <li>
                         <NavLink className="nav-link" to="/thongtindathang">
-                          Thông tin đặt hàng
+                          Sản phẩm dã bán
                         </NavLink>
                       </li>
                     </ul>

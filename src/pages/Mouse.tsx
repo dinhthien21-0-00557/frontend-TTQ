@@ -1,431 +1,98 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import project1 from "../assets/img/project1.png";
-import { Link, NavLink, useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import Detai from "./Detai";
-import Logo from "../assets/img/logo.jpg";
+import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 
-import chuot1 from "../assets/img/chuot1.jpg";
-import chuot2 from "../assets/img/chuot2.jpg";
-import chuot3 from "../assets/img/chuot3.jpg";
-import chuot4 from "../assets/img/chuot4.jpg";
-import chuot5 from "../assets/img/chuot5.png";
-import chuot6 from "../assets/img/chuot6.jpg";
-import chuot7 from "../assets/img/chuot7.jpg";
-import chuot8 from "../assets/img/chuot8.jpg";
-import chuot9 from "../assets/img/chuot9.jpg";
-import chuot10 from "../assets/img/chuot10.jpg";
-import chuot11 from "../assets/img/chuot11.jpg";
-import chuot12 from "../assets/img/chuot12.jpg";
+import { firestore } from "../data/firebase";
+import Header from "./Header";
+import Bodyheader from "./Bodyheader";
+import Menu from "./Menu";
+import Footercard from "./Footercard";
 
-import tichxanh from "../assets/img/logoSaleNoti.png";
+interface Product {
+  TEN_SP: string;
+  LOAI: string;
+  GIA: string;
+  IMAGES: string;
+  id: string;
+}
 
 const Mouse = () => {
-  const { id } = useParams<{ id: string }>();
-
+  const [products, setProducts] = useState<Product[]>([]);
   const navigate = useNavigate();
-  const handleBack = () => {
-    navigate("/");
-  };
-  const showDetai = (e: any, id: number) => {
-    if (e) e.preventDefault();
-    navigate(`/detai/`);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const snapshot = await firestore
+          .collection("PRODUCT")
+          .where("LOAI", "==", "Chuột Gaming")
+          .get();
+        const productsData: Product[] = snapshot.docs.map((doc) => {
+          const data = doc.data();
+          return {
+            id: doc.id,
+            TEN_SP: data.TEN_SP,
+            LOAI: data.LOAI,
+            GIA: data.GIA,
+            IMAGES: data.IMAGES,
+          };
+        });
+        setProducts(productsData);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  const handleClick = (id: string) => {
+    navigate(`/detai/${id}`);
   };
   return (
     <>
-      <section className="color-header2">
-        <div className="container">
-          <div className="row">
-            <div className="col">
-              <button
-                type="button"
-                className="btn btn-#54535300 me-1"
-                onClick={handleBack}
-              >
-                <img src={Logo} alt="" width={300} height={80} />
-              </button>
-            </div>
-            <div className="col-flex">
-              <span className="form-input">
-                <span className="input-header">
-                  <input type="text" placeholder="Tìm kiếm" />
-                </span>
-                <a href="#" className="search">
-                  <i className="fa-solid fa-magnifying-glass" />
-                </a>
-              </span>
-              <div className="col pad-header">
-                <NavLink className="navbar-brand" to="/loginuser">
-                  Đăng Nhập
-                </NavLink>
-                <span>|</span>
-                <NavLink className="navbar-brand" to="/registeruser">
-                  Đăng Ký
-                </NavLink>
-                <span>|</span>
-                <NavLink className="navbar-brand" to="/shoppingcart">
-                  Giỏ Hàng
-                </NavLink>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="menu-headeer-cl">
-        <div className="container">
-          <nav>
-            <ul className="menu-header row  a-i-c">
-              <li>
-                <a className="t-x menu-margin" href="#">
-                  BÀN PHÍM <i className="fa-solid fa-caret-down" />
-                </a>
-                <ul className="menu-list">
-                  <li>
-                    <NavLink className="nav-link" to="/keygiaco">
-                      BÀN PHÍM GIẢ CƠ
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink className="nav-link" to="/keyco">
-                      BÀN PHÍM CƠ
-                    </NavLink>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <NavLink className="nav-link" to="/mouse">
-                  CHUỘT GAMING
-                </NavLink>
-              </li>
-              <li>
-                <a className="t-x menu-margin" href="#">
-                  TAI NGHE
-                </a>
-              </li>
-              <li>
-                <a className="t-x menu-margin" href="#">
-                  KEYCAPS
-                </a>
-              </li>
-              <li>
-                <a className="t-x menu-margin" href="#">
-                  PHỤ KIỆN
-                </a>
-              </li>
-              <li>
-                <a className="t-x menu-margin" href="#">
-                  BÀN GHẾ
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </section>
-
+      <Header />
+      <Bodyheader />
+      <Menu />
       <section className="directory-color">
         <div className="container">
           <div className="headdline">
-            <h3>Chuột Gaming</h3>
+            <h3>Sản Phẩm Mới ra mắt</h3>
           </div>
           <div className="product-form row j-b-c-t">
-            <div className="l-4 product-items col ">
-              <div className="img-product-items">
-                <img src={chuot1} alt="" width={320} height={346} />
-                <div className="product-items-body">
-                  <div className="">
-                    <span className="title-product-items"> Bàn Phím </span>
-                    <span className="comments-product-items">
-                      Kit Custom Phím Cơ ZT84 LED RGB, 3 Modes, Hotswap 5 chân,
-                      Full Sidivcone
-                    </span>
-                    <span className="price-product-items d-l-b">
-                      {" "}
-                      999.000 ₫{" "}
-                    </span>
-                    <div>
-                      <button
-                        type="button"
-                        className="btn btn-danger"
-                        onClick={() => showDetai(null, 0)}
-                      >
-                        <i className="bi-plus-lg" /> Xem Ngay
-                      </button>
+            {products.map((product, index) => (
+              <div className="l-4 product-items col" key={index}>
+                <div className="img-product-items">
+                  <img src={product.IMAGES} alt={product.TEN_SP} />
+                  <div className="product-items-body">
+                    <div className="">
+                      <span className="title-product-items">
+                        {product.LOAI}
+                      </span>
+                      <span className="comments-product-items">
+                        {product.TEN_SP}
+                      </span>
+                      <span className="price-product-items d-l-b">
+                        {product.GIA}
+                      </span>
+                      <div>
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          onClick={() => handleClick(product.id)}
+                        >
+                          <i className="bi-plus-lg" /> Xem Ngay
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="l-4 product-items col ">
-              <div className="img-product-items">
-                <img src={chuot2} alt="" width={320} height={346} />
-                <div className="product-items-body">
-                  <div className="">
-                    <span className="title-product-items"> Bàn Phím </span>
-                    <span className="comments-product-items">
-                      Kit Custom Phím Cơ ZT84 LED RGB, 3 Modes, Hotswap 5 chân,
-                      Full Sidivcone
-                    </span>
-                    <span className="price-product-items d-l-b">
-                      {" "}
-                      999.000 ₫{" "}
-                    </span>
-                    <div>
-                      <a href="#"> xem ngay </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="l-4 product-items col ">
-              <div className="img-product-items">
-                <img src={chuot3} alt="" width={320} height={346} />
-                <div className="product-items-body">
-                  <div className="#">
-                    <span className="title-product-items"> Bàn Phím </span>
-                    <span className="comments-product-items">
-                      Kit Custom Phím Cơ ZT84 LED RGB, 3 Modes, Hotswap 5 chân,
-                      Full Sidivcone
-                    </span>
-                    <span className="price-product-items d-l-b">
-                      {" "}
-                      999.000 ₫{" "}
-                    </span>
-                    <div>
-                      <a href="#"> xem ngay </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="l-4 product-items col ">
-              <div className="img-product-items">
-                <img src={chuot4} alt="" width={320} height={346} />
-                <div className="product-items-body">
-                  <div className="#">
-                    <span className="title-product-items"> Bàn Phím </span>
-                    <span className="comments-product-items">
-                      Kit Custom Phím Cơ ZT84 LED RGB, 3 Modes, Hotswap 5 chân,
-                      Full Sidivcone
-                    </span>
-                    <span className="price-product-items d-l-b">
-                      {" "}
-                      999.000 ₫{" "}
-                    </span>
-                    <div>
-                      <a href=""> xem ngay </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="l-4 product-items col ">
-              <div className="img-product-items">
-                <img src={chuot5} alt="" width={320} height={346} />
-                <div className="product-items-body">
-                  <div className="#">
-                    <span className="title-product-items"> Bàn Phím </span>
-                    <span className="comments-product-items">
-                      Kit Custom Phím Cơ ZT84 LED RGB, 3 Modes, Hotswap 5 chân,
-                      Full Sidivcone
-                    </span>
-                    <span className="price-product-items d-l-b">
-                      {" "}
-                      999.000 ₫{" "}
-                    </span>
-                    <div>
-                      <a href=""> xem ngay </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="l-4 product-items col ">
-              <div className="img-product-items">
-                <img src={chuot6} alt="" width={320} height={346} />
-                <div className="product-items-body">
-                  <div className="#">
-                    <span className="title-product-items"> Bàn Phím </span>
-                    <span className="comments-product-items">
-                      Kit Custom Phím Cơ ZT84 LED RGB, 3 Modes, Hotswap 5 chân,
-                      Full Sidivcone
-                    </span>
-                    <span className="price-product-items d-l-b">
-                      {" "}
-                      999.000 ₫{" "}
-                    </span>
-                    <div>
-                      <a href=""> xem ngay </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="l-4 product-items col ">
-              <div className="img-product-items">
-                <img src={chuot7} alt="" width={320} height={346} />
-                <div className="product-items-body">
-                  <div className="#">
-                    <span className="title-product-items"> Bàn Phím </span>
-                    <span className="comments-product-items">
-                      Kit Custom Phím Cơ ZT84 LED RGB, 3 Modes, Hotswap 5 chân,
-                      Full Sidivcone
-                    </span>
-                    <span className="price-product-items d-l-b">
-                      {" "}
-                      999.000 ₫{" "}
-                    </span>
-                    <div>
-                      <a href=""> xem ngay </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="l-4 product-items col ">
-              <div className="img-product-items">
-                <img src={chuot8} alt="" width={320} height={346} />
-                <div className="product-items-body">
-                  <div className="#">
-                    <span className="title-product-items"> Bàn Phím </span>
-                    <span className="comments-product-items">
-                      Kit Custom Phím Cơ ZT84 LED RGB, 3 Modes, Hotswap 5 chân,
-                      Full Sidivcone
-                    </span>
-                    <span className="price-product-items d-l-b">
-                      {" "}
-                      999.000 ₫{" "}
-                    </span>
-                    <div>
-                      <a href=""> xem ngay </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="l-4 product-items col ">
-              <div className="img-product-items">
-                <img src={chuot9} alt="" width={320} height={346} />
-                <div className="product-items-body">
-                  <div className="#">
-                    <span className="title-product-items"> Bàn Phím </span>
-                    <span className="comments-product-items">
-                      Kit Custom Phím Cơ ZT84 LED RGB, 3 Modes, Hotswap 5 chân,
-                      Full Sidivcone
-                    </span>
-                    <span className="price-product-items d-l-b">
-                      {" "}
-                      999.000 ₫{" "}
-                    </span>
-                    <div>
-                      <a href=""> xem ngay </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="l-4 product-items col ">
-              <div className="img-product-items">
-                <img src={chuot10} alt="" width={320} height={346} />
-                <div className="product-items-body">
-                  <div className="#">
-                    <span className="title-product-items"> Bàn Phím </span>
-                    <span className="comments-product-items">
-                      Kit Custom Phím Cơ ZT84 LED RGB, 3 Modes, Hotswap 5 chân,
-                      Full Sidivcone
-                    </span>
-                    <span className="price-product-items d-l-b">
-                      {" "}
-                      999.000 ₫{" "}
-                    </span>
-                    <div>
-                      <a href=""> xem ngay </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="l-4 product-items col ">
-              <div className="img-product-items">
-                <img src={chuot11} alt="" width={320} height={346} />
-                <div className="product-items-body">
-                  <div className="#">
-                    <span className="title-product-items"> Bàn Phím </span>
-                    <span className="comments-product-items">
-                      Kit Custom Phím Cơ ZT84 LED RGB, 3 Modes, Hotswap 5 chân,
-                      Full Sidivcone
-                    </span>
-                    <span className="price-product-items d-l-b">
-                      {" "}
-                      999.000 ₫{" "}
-                    </span>
-                    <div>
-                      <a href=""> xem ngay </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="l-4 product-items col ">
-              <div className="img-product-items">
-                <img src={chuot12} alt="" width={320} height={346} />
-                <div className="product-items-body">
-                  <div className="#">
-                    <span className="title-product-items"> Bàn Phím </span>
-                    <span className="comments-product-items">
-                      Kit Custom Phím Cơ ZT84 LED RGB, 3 Modes, Hotswap 5 chân,
-                      Full Sidivcone
-                    </span>
-                    <span className="price-product-items d-l-b">
-                      {" "}
-                      999.000 ₫{" "}
-                    </span>
-                    <div>
-                      <a href=""> xem ngay </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
-      <section className="footer">
-        <div className="container">
-          <div className="row bo">
-            <div className="col footer-car">
-              <h3>BOSSGEAR BMT</h3>
-              <hr />
-              <span>TÊN HKD: BOSSGEAR BMT.</span>
-              <span>Chủ sở hữu: VŨ ĐÌNH THIÊN.</span>
-              <span>
-                GPKD SỐ: 40A8050722 Do Sở Kế Hoạch &amp; Đầu Tư Tỉnh Đắk Lắk cấp
-                ngày 25 tháng 10 năm 2022.
-              </span>
-              <span>MST: 8325689637. </span>
-            </div>
-            <div className="col footer-car">
-              <h3>Thông tin liên hệ</h3>
-              <hr />
-              <span>
-                Địa chỉ: QUẬN GÒ VẤP, ĐƯỜNG QUANG TRUNG, HẺM 656/74/62, PHƯỜNG
-                11,
-              </span>
-              <span>SĐT: 0972.483.152</span>
-              <span>ĐC Email: shopbanlinhkien@gmail.com</span>
-              <span>Zalo: 0972.483.152 (THIỆN)</span>
-              <span>GOVAP.VN</span>
-            </div>
-            <div className="col footer-img">
-              <a className=" " href="">
-                <img src={tichxanh} alt="" width={300} height={100} />
-              </a>
-            </div>
-          </div>
-          <br />
-          <br />
-        </div>
-      </section>
+      <Footercard />
     </>
   );
 };

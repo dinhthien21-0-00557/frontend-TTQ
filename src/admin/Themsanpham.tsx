@@ -104,7 +104,7 @@ const Themsanpham: React.FC = () => {
                       <span> Pages </span>
                       <span className="menu-arrow" />
                     </div>
-                    <ul className="nav-second-level ms-5" aria-expanded="false">
+                    <ul className="nav-second-level ms-5">
                       <li>
                         <NavLink className="nav-link" to="/sanpham">
                           Sản phẩm
@@ -117,7 +117,7 @@ const Themsanpham: React.FC = () => {
                       </li>
                       <li>
                         <NavLink className="nav-link" to="/thongtindathang">
-                          Thông tin đặt hàng
+                          Sản phẩm đã bán
                         </NavLink>
                       </li>
                     </ul>

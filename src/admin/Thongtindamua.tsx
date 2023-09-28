@@ -1,9 +1,43 @@
-import * as React from "react";
-import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { firestore } from "../data/firebase";
 import logo from "../assets/img/logo.jpg";
+import { NavLink } from "react-router-dom";
+
+interface HistoryItem {
+  HISTORY_ID: string;
+  TEN_SP: string;
+  SO_LUONG: number;
+  IMAGES: string;
+  TONG_TIEN: string;
+  DON_GIA: string;
+}
 
 const Thongtindathang = () => {
+  const [historyData, setHistoryData] = useState<HistoryItem[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const historyData = await firestore.collection("HISTORY").get();
+        const historyItemsData = historyData.docs.map((doc) => {
+          const data = doc.data();
+          return {
+            HISTORY_ID: data.HISTORY_ID,
+            TEN_SP: data.TEN_SP,
+            SO_LUONG: data.SO_LUONG,
+            IMAGES: data.IMAGES,
+            TONG_TIEN: data.TONG_TIEN,
+            DON_GIA: data.DON_GIA,
+          } as HistoryItem;
+        });
+        setHistoryData(historyItemsData);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div>
       <div className="left-side-menu border-dark border-4 border-end">
@@ -36,7 +70,7 @@ const Thongtindathang = () => {
                     <span> Pages </span>
                     <span className="menu-arrow" />
                   </div>
-                  <ul className="nav-second-level ms-5" aria-expanded="false">
+                  <ul className="nav-second-level ms-5">
                     <li>
                       <NavLink className="nav-link" to="/sanpham">
                         Sản phẩm
@@ -49,7 +83,7 @@ const Thongtindathang = () => {
                     </li>
                     <li>
                       <NavLink className="nav-link" to="#">
-                        Thông tin đặt hàng
+                        Sản phẩm đã bán
                       </NavLink>
                     </li>
                   </ul>
@@ -69,14 +103,12 @@ const Thongtindathang = () => {
                   className="display-6"
                   style={{ fontFamily: '"Times New Roman", Times, serif' }}
                 >
-                  Thông Tin Đặt Hàng
+                  Sản phẩm đã bán
                 </h2>
               </div>
               <div className="col text-end me-4 pt-3">
                 Pages &gt;{" "}
-                <span className="text-info  align-middle">
-                  Thông Tin Đặt Hàng
-                </span>
+                <span className="text-info  align-middle">Sản phẩm đã bán</span>
               </div>
             </div>
           </div>
@@ -86,101 +118,33 @@ const Thongtindathang = () => {
               <table className="table  table-bordered border border border-dark rounded-5 ">
                 <thead>
                   <tr>
-                    <th>IDCARD</th>
+                    <th>ID</th>
                     <th>Hình ảnh</th>
-                    <th>Tên</th>
+                    <th>Tên sản phẩm</th>
                     <th>Đơn giá</th>
                     <th>Số lượng</th>
                     <th>Thành tiền</th>
-                    <th>Địa chỉ </th>
-                    <th>Số lượng</th>
                   </tr>
                 </thead>
                 <tbody className="align-middle">
-                  <tr>
-                    <td>01</td>
-                    <td>
-                      Bộ Keycap Childishness Ngây Thơ Siêu Dễ Thương, Chuẩn OEM,
-                      Xuyên LED Cực Đẹp, 138 Nút.
-                    </td>
-                    <td>1</td>
-                    <td>499.000</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>0389958877</td>
-                    <td>Tp hcm</td>
-                  </tr>
-                  <tr>
-                    <td>01</td>
-                    <td>
-                      Bộ Keycap Childishness Ngây Thơ Siêu Dễ Thương, Chuẩn OEM,
-                      Xuyên LED Cực Đẹp, 138 Nút.
-                    </td>
-                    <td>1</td>
-                    <td>499.000</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>0389958877</td>
-                    <td>Tp hcm</td>
-                  </tr>
-                  <tr>
-                    <td>01</td>
-                    <td>
-                      Bộ Keycap Childishness Ngây Thơ Siêu Dễ Thương, Chuẩn OEM,
-                      Xuyên LED Cực Đẹp, 138 Nút.
-                    </td>
-                    <td>1</td>
-                    <td>499.000</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>0389958877</td>
-                    <td>Tp hcm</td>
-                  </tr>
-                  <tr>
-                    <td>01</td>
-                    <td>
-                      Bộ Keycap Childishness Ngây Thơ Siêu Dễ Thương, Chuẩn OEM,
-                      Xuyên LED Cực Đẹp, 138 Nút.
-                    </td>
-                    <td>1</td>
-                    <td>499.000</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>0389958877</td>
-                    <td>Tp hcm</td>
-                  </tr>
-                  <tr>
-                    <td>01</td>
-                    <td>
-                      Bộ Keycap Childishness Ngây Thơ Siêu Dễ Thương, Chuẩn OEM,
-                      Xuyên LED Cực Đẹp, 138 Nút.
-                    </td>
-                    <td>1</td>
-                    <td>499.000</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>0389958877</td>
-                    <td>Tp hcm</td>
-                  </tr>
-                  <tr>
-                    <td>01</td>
-                    <td>
-                      Bộ Keycap Childishness Ngây Thơ Siêu Dễ Thương, Chuẩn OEM,
-                      Xuyên LED Cực Đẹp, 138 Nút.
-                    </td>
-                    <td>1</td>
-                    <td>499.000</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>0389958877</td>
-                    <td>Tp hcm</td>
-                  </tr>
-                  <tr>
-                    <td>01</td>
-                    <td>
-                      Bộ Keycap Childishness Ngây Thơ Siêu Dễ Thương, Chuẩn OEM,
-                      Xuyên LED Cực Đẹp, 138 Nút.
-                    </td>
-                    <td>1</td>
-                    <td>499.000</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>0389958877</td>
-                    <td>Tp hcm</td>
-                  </tr>
+                  {historyData.map((item) => (
+                    <tr key={item.HISTORY_ID}>
+                      <td>{item.HISTORY_ID}</td>
+                      <td>
+                        <img
+                          src={item.IMAGES}
+                          width={50}
+                          height={50}
+                          alt=""
+                          style={{ objectFit: "cover" }}
+                        />
+                      </td>
+                      <td>{item.TEN_SP}</td>
+                      <td>{item.DON_GIA}</td>
+                      <td>{item.SO_LUONG}</td>
+                      <td>{item.TONG_TIEN}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
