@@ -2,16 +2,25 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import Logo from "../assets/img/LOGO1.png";
+import { Link, useNavigate } from "react-router-dom";
 
 const Bodyheader = () => {
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate("/");
+  };
   return (
     <section className="color-header2">
       <div className="container">
         <div className="row">
           <div className="col">
-            <a className="img-home" href="#">
+            <button
+              type="button"
+              className="btn btn-#54535300 me-1"
+              onClick={handleBack}
+            >
               <img src={Logo} alt="" width={300} height={80} />
-            </a>
+            </button>
           </div>
           <div className="col-flex">
             <span className="form-input">
@@ -23,17 +32,9 @@ const Bodyheader = () => {
               </a>
             </span>
             <div className="col pad-header">
-              <a className="t-x" href="#">
-                Đăng Nhập
-              </a>
-              <span>|</span>
-              <a className="t-x" href="#">
-                Đăng Ký
-              </a>
-              <span>|</span>
-              <a className="t-x" href="#">
-                <i className="fa-solid fa-cart-shopping" /> Giỏ Hàng
-              </a>
+              <Link className="navbar-brand" to="/shoppingcart">
+                Giỏ Hàng
+              </Link>
             </div>
           </div>
         </div>
