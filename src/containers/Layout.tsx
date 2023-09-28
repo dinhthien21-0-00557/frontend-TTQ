@@ -11,7 +11,7 @@ import Bodyheader from "./../pages/Bodyheader";
 import Sanpham from "../admin/Sanpham";
 import Themsanpham from "./../admin/Themsanpham";
 import Thongtindathang from "../admin/Thongtindamua";
-import Admin from "../contaiadmin/Admin";
+
 import Mouse from "./../pages/Mouse";
 import Bpco from "../pages/Bpco";
 import Bpgiaco from "./../pages/Bpgiaco";
@@ -19,13 +19,17 @@ import Bpgiaco from "./../pages/Bpgiaco";
 import Shoppingcart from "./../pages/Shoppingcart";
 import Sanphamdamua from "./../pages/Sanphamdamua";
 import EditSanpham from "../admin/Editsanpham";
+import Login from "./../pages/Login";
+import Register from "./../pages/Register";
+import Sanphamhome from "../pages/Sanphamhome";
 
 const Layout = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-
+        <Route path="loginuser" element={<Login />} />
+        <Route path="registeruser" element={<Register />} />
         <Route path="detai/:id" element={<Detai />} />
         <Route path="sanpham" element={<Sanpham />} />
         <Route path="themsanpham" element={<Themsanpham />} />
@@ -37,6 +41,7 @@ const Layout = () => {
         <Route path="shoppingcart" element={<Shoppingcart />} />
         <Route path="shopping" element={<Sanphamdamua />} />
         <Route path="/editsanpham/:id" element={<EditSanpham />} />
+        <Route path="sanphamhome" element={<Sanphamhome />} />
       </Routes>
     </>
   );

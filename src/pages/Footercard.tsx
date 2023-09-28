@@ -4,7 +4,7 @@ import tichxanh from "../assets/img/logoSaleNoti.png";
 
 const Footercard = () => {
   return (
-    <section className="footer">
+    <section className="footer pt-5">
       <div className="container">
         <div className="row bo">
           <div className="col footer-car">

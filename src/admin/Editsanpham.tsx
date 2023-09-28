@@ -237,7 +237,7 @@ const EditSanpham: React.FC = () => {
                         Giá
                       </label>
                       <input
-                        type="text"
+                        type="number"
                         className="form-control"
                         id="gia"
                         name="gia"

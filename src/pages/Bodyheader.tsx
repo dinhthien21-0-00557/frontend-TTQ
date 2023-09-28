@@ -32,8 +32,20 @@ const Bodyheader = () => {
               </a>
             </span>
             <div className="col pad-header">
+              <Link className="navbar-brand" to="/loginuser">
+                Đăng Nhập
+              </Link>
+              <span> | </span>
+              <Link className="navbar-brand" to="/registeruser">
+                Đăng Ký
+              </Link>
+              <span> | </span>
               <Link className="navbar-brand" to="/shoppingcart">
                 Giỏ Hàng
+              </Link>
+              <span> | </span>
+              <Link className="navbar-brand" to="/shopping">
+                Sản phẩm đã mua
               </Link>
             </div>
           </div>
