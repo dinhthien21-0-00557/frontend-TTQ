@@ -1,6 +1,3 @@
-// import * as React from "react";
-import { useState, useEffect } from "react";
-import React from "react";
 import Logo from "../assets/img/LOGO1.png";
 import { Link, useNavigate } from "react-router-dom";
 

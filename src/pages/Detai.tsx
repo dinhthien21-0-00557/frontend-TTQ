@@ -17,7 +17,6 @@ interface Product {
 }
 
 const Detai = () => {
-  const [cardId, setCardId] = useState<number>(1);
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [product, setProduct] = useState<Product | null>(null);
@@ -157,26 +156,6 @@ const Detai = () => {
                 <NavLink className="nav-link" to="/mouse">
                   CHUỘT GAMING
                 </NavLink>
-              </li>
-              <li>
-                <a className="t-x menu-margin" href="#">
-                  TAI NGHE
-                </a>
-              </li>
-              <li>
-                <a className="t-x menu-margin" href="#">
-                  KEYCAPS
-                </a>
-              </li>
-              <li>
-                <a className="t-x menu-margin" href="#">
-                  PHỤ KIỆN
-                </a>
-              </li>
-              <li>
-                <a className="t-x menu-margin" href="#">
-                  BÀN GHẾ
-                </a>
               </li>
             </ul>
           </nav>

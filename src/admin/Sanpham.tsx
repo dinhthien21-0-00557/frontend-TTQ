@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { firestore } from "../data/firebase";
 import logo from "../assets/img/logo.jpg";
-import Themsanpham from "./Themsanpham";
+
 interface Product {
   id: string;
 
@@ -35,7 +35,7 @@ const Sanpham = () => {
         }));
         productsData.forEach((product) => {
           if (!product.PRODUCT_ID) {
-            product.PRODUCT_ID = "0"; // Nếu PRODUCT_ID rỗng, gán giá trị mặc định là "0"
+            product.PRODUCT_ID = "0";
           }
         });
 

@@ -24,7 +24,6 @@ const EditSanpham: React.FC = () => {
         if (productDoc.exists) {
           const productData = productDoc.data();
           if (productData) {
-            // Kiểm tra xem productData có tồn tại hay không
             setIdInput(productData.PRODUCT_ID);
             setTen(productData.TEN_SP);
             setImages(productData.IMAGES);

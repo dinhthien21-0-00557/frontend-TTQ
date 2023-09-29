@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 
-import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { firestore } from "../data/firebase";
 import Header from "./Header";
@@ -58,7 +58,7 @@ const Keyboard = () => {
       <section className="directory-color">
         <div className="container">
           <div className="headdline">
-            <h3>Sản Phẩm Mới ra mắt</h3>
+            <h3>Bàn Phím Cơ</h3>
           </div>
           <div className="product-form row j-b-c-t">
             {products.map((product, index) => (

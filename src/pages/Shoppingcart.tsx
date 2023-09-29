@@ -86,6 +86,10 @@ const Shoppingcart = () => {
       console.error("Error handling thanh toan:", error);
     }
   };
+
+  const handleBack = () => {
+    navigate(`/`);
+  };
   return (
     <>
       <Header />
@@ -148,7 +152,14 @@ const Shoppingcart = () => {
                 <div className="number-product">
                   <span> Tổng tiền: {totalAmount} VND </span>
                 </div>
-                <div>
+                <div className=" d-flex">
+                  <button
+                    type="button"
+                    className="button-amount"
+                    onClick={handleBack}
+                  >
+                    <i className="bi-plus-lg" /> Back
+                  </button>
                   <button
                     type="button"
                     className="button-amount"

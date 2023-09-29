@@ -1,8 +1,13 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/loginuser`);
+  };
   return (
     <>
       <section className="register-bg">
@@ -89,6 +94,7 @@ const Register = () => {
                           type="submit"
                           className="btn btn-success my-2"
                           style={{ width: "100%" }}
+                          onClick={handleClick}
                         >
                           ĐĂNG KÝ
                         </button>

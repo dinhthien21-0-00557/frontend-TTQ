@@ -1,13 +1,9 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-const Login = () => {
-  const { id } = useParams<{ id: string }>();
 
+import { Link, useNavigate } from "react-router-dom";
+const Login = () => {
   const navigate = useNavigate();
-  const handleBack = () => {
-    navigate("/");
-  };
+
   const showHome = (e: any, id: number) => {
     if (e) e.preventDefault();
     navigate(`/`);

@@ -1,9 +1,8 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+
 import banphimsale1 from "../assets/img/banphimsale1.jpg";
 import banphimsale2 from "../assets/img/bàn phím sale 2.jpg";
 import banphim3 from "../assets/img/bàn phím sale 3.jpg";
-import banphim4 from "../assets/img/bàn phím sale 4.jpg";
 
 const Slider = () => {
   return (

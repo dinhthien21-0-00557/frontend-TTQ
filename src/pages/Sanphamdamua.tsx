@@ -3,8 +3,7 @@ import Header from "../pages/Header";
 import Bodyheader from "./../pages/Bodyheader";
 import Menu from "./../pages/Menu";
 import Footercard from "./../pages/Footercard";
-import { firestore } from "../data/firebase"; // Import firestore from your Firebase config file
-
+import { firestore } from "../data/firebase";
 interface HistoryData {
   HISTORY_ID: string;
   TEN_SP: string;

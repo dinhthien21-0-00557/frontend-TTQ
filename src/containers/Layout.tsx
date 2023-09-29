@@ -1,13 +1,12 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+
 import "../assets/css/Style.css";
-import Headers from "./../pages/Header";
 
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Detai from "../pages/Detai";
 
 import Home from "./Home";
-import Bodyheader from "./../pages/Bodyheader";
+
 import Sanpham from "../admin/Sanpham";
 import Themsanpham from "./../admin/Themsanpham";
 import Thongtindathang from "../admin/Thongtindamua";

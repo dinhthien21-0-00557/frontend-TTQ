@@ -4,6 +4,7 @@ import logo from "../assets/img/logo.jpg";
 import { NavLink } from "react-router-dom";
 
 interface HistoryItem {
+  id: string;
   HISTORY_ID: string;
   TEN_SP: string;
   SO_LUONG: number;
@@ -22,6 +23,7 @@ const Thongtindathang = () => {
         const historyItemsData = historyData.docs.map((doc) => {
           const data = doc.data();
           return {
+            id: doc.id,
             HISTORY_ID: data.HISTORY_ID,
             TEN_SP: data.TEN_SP,
             SO_LUONG: data.SO_LUONG,
@@ -30,14 +32,28 @@ const Thongtindathang = () => {
             DON_GIA: data.DON_GIA,
           } as HistoryItem;
         });
+
+        historyItemsData.sort(
+          (a, b) => parseInt(a.HISTORY_ID) - parseInt(b.HISTORY_ID)
+        );
         setHistoryData(historyItemsData);
       } catch (error) {
-        console.error("Error fetching data: ", error);
+        console.error("Error fetching products:", error);
       }
     };
 
     fetchData();
   }, []);
+
+  const handleDelete = async (id: string) => {
+    try {
+      await firestore.collection("HISTORY").doc(id).delete();
+
+      setHistoryData((prevData) => prevData.filter((item) => item.id !== id));
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
+  };
   return (
     <div>
       <div className="left-side-menu border-dark border-4 border-end">
@@ -124,6 +140,7 @@ const Thongtindathang = () => {
                     <th>Đơn giá</th>
                     <th>Số lượng</th>
                     <th>Thành tiền</th>
+                    <th>Hoạt động</th>
                   </tr>
                 </thead>
                 <tbody className="align-middle">
@@ -143,6 +160,14 @@ const Thongtindathang = () => {
                       <td>{item.DON_GIA}</td>
                       <td>{item.SO_LUONG}</td>
                       <td>{item.TONG_TIEN}</td>
+                      <td>
+                        <button
+                          className="btn btn-danger btn-sm delete"
+                          onClick={() => handleDelete(item.id)}
+                        >
+                          Delete
+                        </button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>

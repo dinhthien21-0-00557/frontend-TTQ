@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/img/logo.jpg";
-import firebase from "firebase/app";
+
 import { firestore } from "../data/firebase";
 
 interface FormData {

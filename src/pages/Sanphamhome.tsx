@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { firestore } from "../data/firebase";
 import Header from "./Header";
@@ -27,7 +27,7 @@ const Sanphamhome = () => {
       try {
         const snapshot = await firestore
           .collection("PRODUCT")
-          .where("LOAI", "==", "Bàn Phím giả cơ")
+
           .get();
         const productsData: Product[] = snapshot.docs.map((doc) => {
           const data = doc.data();
